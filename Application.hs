@@ -89,10 +89,7 @@ warpSettings foundation =
 -- | For yesod devel, return the Warp settings and WAI Application.
 getApplicationDev :: IO (Settings, Application)
 getApplicationDev = do
-    settings <- getAppSettings
-    foundation <- makeFoundation settings
-    wsettings <- getDevSettings $ warpSettings foundation
-    app <- makeApplication foundation
+    (_settings, _foundation, wsettings, app) <- getApplication
     return (wsettings, app)
 
 getAppSettings :: IO AppSettings
@@ -128,11 +125,16 @@ appMain = do
 --------------------------------------------------------------
 getApplicationRepl :: IO (Int, App, Application)
 getApplicationRepl = do
+    (_settings, foundation, wsettings, app) <- getApplication
+    return (getPort wsettings, foundation, app)
+
+getApplication :: IO (AppSettings, App, Settings, Application)
+getApplication = do
     settings <- getAppSettings
     foundation <- makeFoundation settings
     wsettings <- getDevSettings $ warpSettings foundation
-    app1 <- makeApplication foundation
-    return (getPort wsettings, foundation, app1)
+    app <- makeApplication foundation
+    return (settings, foundation, wsettings, app)
 
 shutdownApp :: App -> IO ()
 shutdownApp _ = return ()

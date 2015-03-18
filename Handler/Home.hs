@@ -28,7 +28,6 @@ postHomeR = do
         submission = case result of
             FormSuccess res -> Just res
             _ -> Nothing
-
     defaultLayout $ do
         aDomId <- newIdent
         setTitle "Welcome To Yesod!"

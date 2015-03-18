@@ -9,6 +9,7 @@ cabal-dev/
 cabal.sandbox.config
 config/client_session_key.aes
 dist*
+report.html
 static/combined/
 static/tmp/
 yesod-devel/
