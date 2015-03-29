@@ -1,7 +1,7 @@
 *.hi
 *.o
 *.sqlite3
-*.swp
+*.sw[op]
 .DS_Store
 .cabal-sandbox
 .hsenv*
