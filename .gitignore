@@ -13,3 +13,6 @@ report.html
 static/combined/
 static/tmp/
 yesod-devel/
+
+# Dynamic configuration file
+env.sh
