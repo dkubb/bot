@@ -41,6 +41,7 @@ export ORIGIN='heroku'
 export REMOTE_URL='$(git config --get remote.heroku.url)'
 export BRANCH="\$(git rev-parse --abbrev-ref HEAD)"
 
+export HALCYON_BASE='/app'
 export HALCYON_AWS_ACCESS_KEY_ID='$HALCYON_AWS_ACCESS_KEY_ID'
 export HALCYON_AWS_SECRET_ACCESS_KEY='$HALCYON_AWS_SECRET_ACCESS_KEY'
 export HALCYON_S3_BUCKET='$HALCYON_S3_BUCKET'
