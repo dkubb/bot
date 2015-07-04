@@ -1,0 +1,8 @@
+flags: {}
+packages:
+- '.'
+extra-deps:
+- airship-0.3.0.0
+- http-media-0.6.2
+- monad-control-1.0.0.4
+resolver: lts-2.16

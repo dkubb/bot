@@ -1,0 +1,23 @@
+machine:
+  ghc:
+    version: 7.10.1
+  environment:
+    PATH: $HOME/$CIRCLE_PROJECT_REPONAME/.cabal-sandbox/bin:$PATH
+
+general:
+  artifacts:
+    - dist/test/
+
+dependencies:
+  override:
+    - cabal update
+    - cabal sandbox init
+    - cabal install -j2 --only-dependencies --enable-tests:
+        timeout: 3000
+
+test:
+  override:
+    - cabal configure --enable-tests
+    - cabal build -j2
+    - cabal test:
+        timeout: 3000
